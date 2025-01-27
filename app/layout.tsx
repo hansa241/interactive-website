@@ -1,3 +1,4 @@
+import './globals.css';
 import React, {JSX} from "react";
 
 export default function RootLayout({ children, }:

@@ -1,4 +1,5 @@
 import React, {ChangeEvent, useEffect, useRef, useState} from 'react';
+import Image from "next/image";
 
 export default function SettingsMenu() {
     const [isOpen, setIsOpen] = useState(false);
@@ -51,7 +52,7 @@ export default function SettingsMenu() {
                 onClick={toggleMenu}
                 className="absolute top-4 left-4 p-2 bg-gray-100 hover:bg-gray-200 rounded-full shadow-md
                 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                <img src="/settings.svg" alt="Settings" className="w-6 h-6" />
+                <Image src="/settings.svg" alt="Settings" width="24" height="24" />
             </button>
 
             {isOpen && (

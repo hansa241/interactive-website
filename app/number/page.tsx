@@ -16,7 +16,7 @@ export default function Page() {
         <div className="flex min-h-screen items-center justify-center bg-amber-100">
             <div className="flex flex-col items-center gap-4">
                 <div className="grid grid-cols-5 gap-3">
-                    {Array.from({ length: 10 }, (_, i) => (
+                    {Array.from({length: 10}, (_, i) => (
                         <button
                             onClick={() => update(i)}
                             key={i}
@@ -25,7 +25,7 @@ export default function Page() {
                         </button>
                     ))}
                 </div>
-                <p id="resultNumber"> </p>
+                <p id="resultNumber">-</p>
             </div>
         </div>
     );

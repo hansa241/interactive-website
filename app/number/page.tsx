@@ -25,7 +25,7 @@ export default function Page() {
                         </button>
                     ))}
                 </div>
-                <p id="resultNumber"></p>
+                <p id="resultNumber"> </p>
             </div>
         </div>
     );

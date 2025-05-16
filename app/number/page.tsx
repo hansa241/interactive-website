@@ -13,7 +13,7 @@ export default function Page() {
     }
 
     return (
-        <div className="flex min-h-screen items-center justify-center bg-amber-100">
+        <main className="flex min-h-screen items-center justify-center bg-amber-100">
             <div className="flex flex-col items-center gap-4">
                 <div className="grid grid-cols-5 gap-3">
                     {Array.from({length: 10}, (_, i) => (
@@ -27,6 +27,6 @@ export default function Page() {
                 </div>
                 <p id="resultNumber">-</p>
             </div>
-        </div>
+        </main>
     );
 }

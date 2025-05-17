@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  env: {
+    STREETVIEW_API_KEY: process.env.STREETVIEW_API_KEY,
+  },
 };
 
 export default nextConfig;

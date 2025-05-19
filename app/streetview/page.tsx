@@ -1,6 +1,6 @@
 'use client';
-import React, {useCallback, useRef} from "react";
-import Script from "next/script";
+import React, {useCallback, useRef} from 'react';
+import Script from 'next/script';
 
 export default function Page() {
     const panoRef = useRef<HTMLDivElement>(null);

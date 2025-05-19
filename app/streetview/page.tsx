@@ -9,8 +9,8 @@ export default function Page() {
         if (panoRef.current === null) return;
 
         new window.google.maps.StreetViewPanorama(panoRef.current, {
-            position: { lat: 44.947541243920625, lng: -93.10809415611486 },
-            pov: { heading: 0, pitch: 0},
+            position: {lat: 44.947541243920625, lng: -93.10809415611486},
+            pov: {heading: 0, pitch: 0},
             zoom: 1,
         });
     }, []);
@@ -28,5 +28,5 @@ export default function Page() {
                 className="w-full h-screen"
             ></main>
         </>
-    )
+    );
 }

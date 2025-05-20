@@ -27,7 +27,7 @@ export default function Page() {
     };
 
     return (
-      <div className="flex items-center justify-center h-screen bg-gray-200">
+      <main className="flex items-center justify-center h-screen bg-gray-200">
           <div
               ref={containerRef}
               className="border border-gray-500 relative bg-gray-100"
@@ -49,6 +49,6 @@ export default function Page() {
                   />
               )}
           </div>
-      </div>
+      </main>
     );
 }

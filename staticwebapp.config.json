@@ -1,0 +1,16 @@
+{
+  "routes": [
+    {
+      "route": "/streetview*",
+      "allowedRoles": ["admin"]
+    },
+    {
+      "route": "/logout*",
+      "redirect": "/.auth/logout"
+    },
+    {
+      "route": "/login*",
+      "rewrite": "/.auth/login/github"
+    }
+  ]
+}

@@ -14,7 +14,7 @@ export default function Page() {
         <main className="min-h-screen flex flex-col items-center
         justify-center bg-gradient-to-br from-slate-950 to-gray-600 text-white p-4">
             <motion.div
-                className="p-6 bg-white bg-opacity-10 rounded-2xl shadow-2xl mb-8"
+                className="p-6 bg-gray-600 bg-opacity-10 rounded-2xl shadow-2xl mb-8"
                 layout={true}
                 initial={{scale: 0.8, opacity: 0}}
                 animate={{scale: 1, opacity: 1}}

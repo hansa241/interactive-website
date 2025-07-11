@@ -6,6 +6,18 @@ type Cell = {
     color: 'blue' | 'red' | 'gray' | '';
 };
 
+/* max. 12 letters, all caps */
+const WORD_BANK = [
+    'TEMPLE', 'FANTANO', 'SUBARU', 'SAVANNA', 'PAWN STARS',
+    'WORDLE', 'NEIGHBOR', 'SOUTH POLE', 'SKIBIDI', 'CORN MAZE',
+    'DEFAULT MII', 'LANGUAGE', 'CRUISE SHIP', 'HAIRLESS CAT',
+    'SMOKE BREAK', 'RED LOBSTER', 'FREQ. FLYER', 'CHICKEN',
+    'AMONG US', 'CAR ON FIRE', 'FNAF', 'DESK CHAIR', 'SOMBRERO',
+    'FIONA APPLE', 'EMPTY PLAYG', 'PATCH', 'PUFF', 'DONKEY',
+    'BLANK', 'GUMBALL', 'HOWIE MANDEL', 'BRIAN DOG', 'FAMILY GUY',
+    'STEVE', 'MINECRAFT', 'SKELETON',
+];
+
 export default function Page() {
     const [grid, setGrid] = useState<Cell[][]>(
         Array.from({length: 5}, () =>
@@ -76,6 +88,34 @@ export default function Page() {
         }
     };
 
+    const clearColors = () => {
+        setGrid(prev =>
+            prev.map(row =>
+                row.map(cell => ({
+                    ...cell,
+                    color: '',
+                })),
+            ),
+        );
+    };
+
+    const shuffleBoard = () => {
+        const words = [...WORD_BANK];
+        for (let i = words.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [words[i], words[j]] = [words[j], words[i]];
+        }
+
+        setGrid(prev =>
+            prev.map((row, r) =>
+                row.map((cell, c) => ({
+                    ...cell,
+                    word: (words[(r * 5 + c) % words.length] || '').slice(0, 12),
+                })),
+            ),
+        );
+    };
+
     return (
         <main className="p-4 mx-auto max-w-full sm:max-w-xl">
             <div className="flex space-x-2 mb-4">
@@ -129,6 +169,18 @@ export default function Page() {
                         className="px-4 py-2 bg-yellow-500 text-white rounded"
                     >
                         Import
+                    </button>
+                    <button
+                        onClick={shuffleBoard}
+                        className="px-4 py-2 bg-purple-600 text-white rounded"
+                    >
+                        Shuffle
+                    </button>
+                    <button
+                        onClick={clearColors}
+                        className="px-4 py-2 bg-black text-white rounded"
+                    >
+                        Clear
                     </button>
                 </div>
                 <textarea

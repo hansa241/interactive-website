@@ -1,5 +1,5 @@
 'use client';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 type Cell = {
     word: string,
@@ -17,13 +17,15 @@ const WORD_BANK = [
     'BLANK', 'GUMBALL', 'HOWIE MANDEL', 'BRIAN DOG', 'FAMILY GUY',
     'STEVE', 'MINECRAFT', 'SKELETON', 'GERMANY', 'SON',
     'NEW TRENDS', 'PLACEHOLDER', 'INTERACTION', 'YOUR BED',
-    'WARRANTY', 'REACT', 'YESTERDAY', 'DRAGON', 'A HARPY'
+    'WARRANTY', 'REACT', 'YESTERDAY', 'DRAGON', 'HARPY', 'HORSE',
+    'GEORGIA', 'ROYALTY', 'GHOST', 'ROSE', 'GENES', 'AWARD',
+    'DINOSAUR', 'YERBA MATE', 'ENERGY', 'MITOCHONDRIA', 'MOON',
 ];
 
 export default function Page() {
     const [grid, setGrid] = useState<Cell[][]>(
-        Array.from({length: 5}, () =>
-            Array.from({length: 5}, () => ({word: '', color: ''}))
+        Array.from({ length: 5 }, () =>
+            Array.from({ length: 5 }, () => ({ word: '', color: '' }))
         )
     );
     const [selectedColor, setSelectedColor] = useState<'blue' | 'red' | 'gray' | null>(null);
@@ -125,11 +127,10 @@ export default function Page() {
                     <button
                         key={color}
                         onClick={() => setSelectedColor(color)}
-                        className={`px-4 py-2 rounded focus:outline-none ${
-                            selectedColor === color
+                        className={`px-4 py-2 rounded focus:outline-none ${selectedColor === color
                                 ? `ring-2 ring-offset-2 ring-${color}-600`
                                 : `bg-${color}-500 text-white`
-                        }`}
+                            }`}
                     >
                         Mark {color.charAt(0).toUpperCase() + color.slice(1)}
                     </button>
@@ -137,25 +138,25 @@ export default function Page() {
             </div>
 
             <div className="flex justify-center">
-            <div className="grid grid-cols-5 gap-8">
-                {grid.map((row, r) =>
-                    row.map((cell, c) => (
-                        <div
-                            key={`${r}-${c}`}
-                            onClick={() => handleCellClick(r, c)}
-                            className={`border border-gray-300 w-[12ch] h-12 flex items-center justify-center ${colorClass(cell.color)}`}
-                        >
-                            <input
-                                type="text"
-                                maxLength={12}
-                                value={cell.word}
-                                onChange={e => handleWordChange(r, c, e.target.value)}
-                                className="w-full h-full text-center bg-transparent"
-                            />
-                        </div>
-                    ))
-                )}
-            </div>
+                <div className="grid grid-cols-5 gap-8">
+                    {grid.map((row, r) =>
+                        row.map((cell, c) => (
+                            <div
+                                key={`${r}-${c}`}
+                                onClick={() => handleCellClick(r, c)}
+                                className={`border border-gray-300 w-[12ch] h-12 flex items-center justify-center ${colorClass(cell.color)}`}
+                            >
+                                <input
+                                    type="text"
+                                    maxLength={12}
+                                    value={cell.word}
+                                    onChange={e => handleWordChange(r, c, e.target.value)}
+                                    className="w-full h-full text-center bg-transparent"
+                                />
+                            </div>
+                        ))
+                    )}
+                </div>
             </div>
 
             <div className="mt-6">
